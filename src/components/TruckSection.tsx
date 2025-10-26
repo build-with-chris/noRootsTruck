@@ -119,21 +119,21 @@ export default function TruckSection() {
         <div className="lg:hidden mb-16">
           <Accordion title="Technische Highlights" defaultOpen={true}>
             <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="text-xs text-gray-600">Motor</div>
-                <div className="font-semibold">168 PS Diesel</div>
+              <div className="p-3 bg-white rounded-lg border border-gray-200">
+                <div className="text-xs text-gray-700 font-medium">Motor</div>
+                <div className="font-bold text-gray-900">168 PS Diesel</div>
               </div>
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="text-xs text-gray-600">Hubraum</div>
-                <div className="font-semibold">5.675 cm³</div>
+              <div className="p-3 bg-white rounded-lg border border-gray-200">
+                <div className="text-xs text-gray-700 font-medium">Hubraum</div>
+                <div className="font-bold text-gray-900">5.675 cm³</div>
               </div>
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="text-xs text-gray-600">Führerschein</div>
-                <div className="font-semibold">Klasse C1E</div>
+              <div className="p-3 bg-white rounded-lg border border-gray-200">
+                <div className="text-xs text-gray-700 font-medium">Führerschein</div>
+                <div className="font-bold text-gray-900">Klasse C1E</div>
               </div>
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="text-xs text-gray-600">Max. Speed</div>
-                <div className="font-semibold">84 km/h</div>
+              <div className="p-3 bg-white rounded-lg border border-gray-200">
+                <div className="text-xs text-gray-700 font-medium">Max. Speed</div>
+                <div className="font-bold text-gray-900">84 km/h</div>
               </div>
             </div>
           </Accordion>

@@ -73,9 +73,9 @@ export default function MobileProgressIndicator() {
         </div>
       </div>
 
-      {/* Chapter Dots Navigation */}
-      <div className="lg:hidden fixed right-4 top-1/2 transform -translate-y-1/2 z-40">
-        <div className="flex flex-col space-y-2">
+      {/* Chapter Dots Navigation - Dezenter */}
+      <div className="lg:hidden fixed right-3 top-1/2 transform -translate-y-1/2 z-30">
+        <div className="flex flex-col space-y-3">
           {chapters.map((chapter, index) => (
             <button
               key={chapter.id}
@@ -85,43 +85,18 @@ export default function MobileProgressIndicator() {
                   element.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
-              className={`group relative w-3 h-3 rounded-full transition-all duration-200 ${
+              className={`group relative w-2 h-2 rounded-full transition-all duration-300 ${
                 currentChapter === index
-                  ? 'bg-primary-500 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  ? 'bg-primary-400 scale-150 shadow-sm'
+                  : 'bg-gray-200 hover:bg-gray-300'
               }`}
             >
-              {/* Tooltip on hover */}
-              <div className={`absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap ${
-                currentChapter === index ? 'opacity-100' : ''
-              }`}>
+              {/* Tooltip on hover - nur bei Hover sichtbar */}
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap backdrop-blur-sm">
                 {chapter.number === 0 ? chapter.title : `${chapter.number}. ${chapter.title}`}
               </div>
             </button>
           ))}
-        </div>
-      </div>
-
-      {/* Floating Mini Overview */}
-      <div className="lg:hidden fixed bottom-20 left-4 z-40">
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-3 max-w-40">
-          <div className="text-xs font-semibold text-gray-800 mb-1">
-            {currentChapter === 0 ? 'Start' : `Kapitel ${currentChapter}`}
-          </div>
-          <div className="text-xs text-gray-600 leading-tight">
-            {chapters[currentChapter]?.title}
-          </div>
-          <div className="mt-2 flex items-center space-x-1">
-            {chapters.map((_, index) => (
-              <div
-                key={index}
-                className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                  index === currentChapter ? 'bg-primary-500' :
-                  index < currentChapter ? 'bg-green-400' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </div>
 

@@ -221,10 +221,10 @@ export default function TrailerSection() {
                 Atmosphäre & Ambiente
               </h4>
               <p className="text-gray-700">
-                Komplettumbau 2017–2020 mit nachhaltigen Materialien: Armaflex-Dämmung,
+                Komplettumbau 2017–2020 mit ausschließlich natürlichen Materialien: Armaflex-Dämmung,
                 hinterlüftete Birkenholzverkleidung. Verwendung von Birke, Eukalyptus und
-                200 Jahre alter Fichte. Holz mit Naturwachs behandelt – keine Kunststoffe.
-                11 große Fenster sorgen für optimale Lichtverhältnisse.
+                200 Jahre alter Fichte. Alle Holzoberflächen mit Naturwachs behandelt für natürliches Raumklima.
+                11 große Fenster sorgen für optimale Lichtverhältnisse und Frischluftzirkulation.
               </p>
             </div>
           </div>
