@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation'
+import MobileProgressIndicator from '@/components/MobileProgressIndicator'
 import HeroSection from '@/components/HeroSection'
 import CharacterSection from '@/components/CharacterSection'
 import TruckSection from '@/components/TruckSection'
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
+      <MobileProgressIndicator />
       <HeroSection />
       <CharacterSection />
       <TruckSection />

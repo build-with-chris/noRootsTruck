@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import MobileChapterTransition from './MobileChapterTransition'
 
 export default function CharacterSection() {
   return (
@@ -69,6 +70,14 @@ export default function CharacterSection() {
           </div>
         </div>
       </div>
+
+      <MobileChapterTransition
+        currentChapter="Kapitel 1"
+        currentTitle="Charakter & Geschichte"
+        nextChapter="Kapitel 2"
+        nextTitle="Zugmaschine"
+        nextId="truck"
+      />
     </section>
   )
 }

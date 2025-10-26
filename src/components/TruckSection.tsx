@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Accordion from './Accordion'
+import MobileChapterTransition from './MobileChapterTransition'
 
 export default function TruckSection() {
   const technicalData = [
@@ -68,16 +69,31 @@ export default function TruckSection() {
           {/* Unser Meisterwerk - Full Width Hero Image */}
           <div className="mb-16">
             <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Unser Meisterwerk</h3>
-            <div className="relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
+            {/* Desktop - with red background */}
+            <div className="hidden lg:block relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/Overview.jpg"
                 alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
                 width={1600}
                 height={800}
-                className="object-contain w-full h-[500px] lg:h-[600px]"
+                className="object-contain w-full h-[600px]"
               />
               <div className="absolute bottom-8 left-8 glass-effect rounded-xl px-8 py-4">
                 <span className="text-white font-bold text-xl">Daimler-Benz 1017 S - Außenansicht</span>
+              </div>
+            </div>
+
+            {/* Mobile - without red background */}
+            <div className="lg:hidden relative rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/Overview.jpg"
+                alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
+                width={1600}
+                height={800}
+                className="object-cover w-full h-[400px] rounded-3xl"
+              />
+              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
+                <span className="text-white font-semibold">Daimler-Benz 1017 S</span>
               </div>
             </div>
           </div>
@@ -183,6 +199,14 @@ export default function TruckSection() {
           </div>
         </div>
       </div>
+
+      <MobileChapterTransition
+        currentChapter="Kapitel 2"
+        currentTitle="Zugmaschine"
+        nextChapter="Kapitel 3"
+        nextTitle="Wohntrailer"
+        nextId="trailer"
+      />
     </section>
   )
 }
