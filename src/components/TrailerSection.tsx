@@ -40,7 +40,8 @@ export default function TrailerSection() {
             Grundriss & Raumaufteilung
           </h3>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Desktop Floor Plan */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               {/* Simplified Floor Plan Visualization */}
               <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
@@ -118,6 +119,79 @@ export default function TrailerSection() {
                     </span>
                   </div>
                   <p className="text-gray-600">{room.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Floor Plan - Larger Boxes */}
+          <div className="lg:hidden">
+            <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+              <div className="space-y-6">
+                {/* Upper Level */}
+                <div className="border-b border-gray-300 pb-4">
+                  <div className="text-sm font-semibold text-gray-700 mb-3 text-center">Obere Ebene</div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-primary-100 rounded-lg p-4 text-center">
+                      <div className="font-semibold text-primary-800">Schlafzimmer</div>
+                      <div className="text-sm text-primary-600">7,7 m²</div>
+                    </div>
+                    <div className="bg-accent-100 rounded-lg p-4 text-center">
+                      <div className="font-semibold text-accent-800">Chill-/Leseraum</div>
+                      <div className="text-sm text-accent-600">6,6 m²</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Level */}
+                <div>
+                  <div className="text-sm font-semibold text-gray-700 mb-3 text-center">Hauptebene</div>
+                  <div className="space-y-3">
+                    {/* Largest room first */}
+                    <div className="bg-green-100 rounded-lg p-4 text-center">
+                      <div className="font-semibold text-green-800">Esszimmer</div>
+                      <div className="text-sm text-green-600">9,9 m²</div>
+                      <div className="text-xs text-green-500 italic">größter Raum</div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-blue-100 rounded-lg p-4 text-center">
+                        <div className="font-semibold text-blue-800">Küche</div>
+                        <div className="text-sm text-blue-600">8,5 m²</div>
+                      </div>
+                      <div className="bg-purple-100 rounded-lg p-4 text-center">
+                        <div className="font-semibold text-purple-800">Wohnzimmer</div>
+                        <div className="text-sm text-purple-600">8,5 m²</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-orange-100 rounded-lg p-4 text-center">
+                      <div className="font-semibold text-orange-800">Badezimmer</div>
+                      <div className="text-sm text-orange-600">2,2 m²</div>
+                      <div className="text-xs text-orange-500 italic">kleinster Raum</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 text-center border-t border-gray-300 pt-4">
+                <div className="text-sm font-semibold text-gray-800">44 m² Gesamtwohnfläche</div>
+                <div className="text-xs text-gray-600 mt-1">8–12 Schlafplätze • 11 Lichtöffnungen</div>
+              </div>
+            </div>
+
+            {/* Mobile Room Details */}
+            <div className="mt-8 space-y-4">
+              <h4 className="font-serif text-xl font-bold text-gray-900 text-center">Raumdetails</h4>
+              {roomData.map((room, index) => (
+                <div key={index} className="bg-white rounded-xl p-4 shadow-md border border-gray-100">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-semibold text-gray-900">{room.name}</h5>
+                    <span className="bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-xs font-medium">
+                      {room.size}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-sm">{room.description}</p>
                 </div>
               ))}
             </div>

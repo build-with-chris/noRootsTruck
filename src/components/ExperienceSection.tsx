@@ -166,7 +166,7 @@ export default function ExperienceSection() {
             Professionelles Kino-System
           </h3>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-            Seit 2017 als Sozial- und Eventprojekt "Unterwegs Aufatmen" im Einsatz.
+            Seit 2017 als Sozial- und Eventprojekt &quot;Unterwegs Aufatmen&quot; im Einsatz.
             Nur 3–5 Veranstaltungen pro Jahr, daher minimale Abnutzung.
             Das System ist wie neu und bereit für unzählige weitere Events.
           </p>
@@ -191,7 +191,7 @@ export default function ExperienceSection() {
             </h4>
             <p className="text-gray-700">
               Kaum Abnutzung – das System ist wie neu und bereit für unzählige weitere Events.
-              Seit 2017 als Sozial- und Eventprojekt "Unterwegs Aufatmen" im Einsatz.
+              Seit 2017 als Sozial- und Eventprojekt &quot;Unterwegs Aufatmen&quot; im Einsatz.
             </p>
           </div>
         </div>

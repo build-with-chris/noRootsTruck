@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import MobileNavigation from './MobileNavigation'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
   const [isVisible, setIsVisible] = useState(false)
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', label: 'Start', chapter: 'Willkommen' },
     { id: 'character', label: 'Geschichte', chapter: 'Kapitel 1' },
     { id: 'truck', label: 'Zugmaschine', chapter: 'Kapitel 2' },
@@ -16,7 +16,7 @@ export default function Navigation() {
     { id: 'experience', label: 'Open-Air-Kino', chapter: 'Kapitel 5' },
     { id: 'technical', label: 'Technische Daten', chapter: 'Kapitel 6' },
     { id: 'contact', label: 'Preis & Kontakt', chapter: 'Kapitel 7' }
-  ]
+  ], [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [sections])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
