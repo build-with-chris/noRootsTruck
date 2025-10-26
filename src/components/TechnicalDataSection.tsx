@@ -198,36 +198,6 @@ export default function TechnicalDataSection() {
               <span className="text-green-600 font-semibold">Oldtimer-Zulassung + Dokumentation</span>
             </div>
           </div>
-
-          {/* Historie Bilder */}
-          <div className="space-y-6">
-            <h4 className="font-serif text-xl font-bold text-gray-900 text-center">Transformation & Historie</h4>
-            <div className="relative">
-              <Image
-                src="/images/Installing windows.jpg"
-                alt="Umbauphase - Installation der 11 großen Lichtöffnungen"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Umbauphase 2017-2020</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <Image
-                src="/images/History1.jpg"
-                alt="Historische Aufnahme - Motorsport Vergangenheit"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Motorsport-Historie</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

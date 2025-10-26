@@ -157,19 +157,6 @@ export default function ExperienceSection() {
                 <span className="text-white font-semibold">Event-Setup</span>
               </div>
             </div>
-
-            <div className="relative">
-              <Image
-                src="/images/Funiture4.jpg"
-                alt="Gemütliche Innenausstattung für Events"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Live in Aktion</span>
-              </div>
-            </div>
           </div>
         </div>
 

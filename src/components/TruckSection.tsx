@@ -48,45 +48,35 @@ export default function TruckSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
-          <div>
-            <div className="bg-gray-50 rounded-2xl p-8 mb-8">
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-6">Technische Daten</h3>
-              <div className="space-y-4">
-                {technicalData.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
-                    <span className="text-gray-600 font-medium">{item.label}</span>
-                    <span className="text-gray-900 font-semibold">{item.value}</span>
+        {/* Technische Daten - Full Width */}
+        <div className="mb-16">
+          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 mb-8">
+            <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Technische Daten</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {technicalData.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl p-4 shadow-md">
+                  <div className="flex flex-col space-y-2">
+                    <span className="text-gray-600 font-medium text-sm">{item.label}</span>
+                    <span className="text-gray-900 font-bold text-lg">{item.value}</span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="relative">
+          {/* Unser Meisterwerk - Full Width Hero Image */}
+          <div className="mb-16">
+            <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Unser Meisterwerk</h3>
+            <div className="relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/Overview.jpg"
                 alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
+                width={1600}
+                height={800}
+                className="object-contain w-full h-[500px] lg:h-[600px]"
               />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Außenansicht</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <Image
-                src="/images/Funiture1.jpg"
-                alt="Innenraum - Hochwertige Ausstattung"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Innenausstattung</span>
+              <div className="absolute bottom-8 left-8 glass-effect rounded-xl px-8 py-4">
+                <span className="text-white font-bold text-xl">Daimler-Benz 1017 S - Außenansicht</span>
               </div>
             </div>
           </div>

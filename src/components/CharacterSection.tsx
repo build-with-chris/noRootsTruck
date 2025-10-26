@@ -59,8 +59,8 @@ export default function CharacterSection() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary-200 to-accent-200 rounded-3xl opacity-20 blur-xl"></div>
               <Image
-                src="/images/Empty Truck.jpg"
-                alt="Transformation vom leeren Truck zum Design-Loft"
+                src="/images/History1.jpg"
+                alt="Motorsport-Vergangenheit - Vom Renntransporter zum Design-Loft"
                 width={600}
                 height={400}
                 className="relative rounded-2xl shadow-2xl object-cover w-full h-96"
