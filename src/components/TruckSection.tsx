@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Accordion from './Accordion'
 
 export default function TruckSection() {
   const technicalData = [
@@ -34,7 +35,7 @@ export default function TruckSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section id="truck" className="py-20 lg:py-32 bg-white">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-4">
@@ -82,8 +83,8 @@ export default function TruckSection() {
           </div>
         </div>
 
-        {/* Besondere Merkmale - Full Width */}
-        <div className="mb-16">
+        {/* Besondere Merkmale - Desktop Full Width */}
+        <div className="mb-16 hidden lg:block">
           <h3 className="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Besondere Merkmale</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
@@ -96,6 +97,68 @@ export default function TruckSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile Accordions */}
+        <div className="lg:hidden mb-16">
+          <Accordion title="Technische Highlights" defaultOpen={true}>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <div className="text-xs text-gray-600">Motor</div>
+                <div className="font-semibold">168 PS Diesel</div>
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <div className="text-xs text-gray-600">Hubraum</div>
+                <div className="font-semibold">5.675 cm³</div>
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <div className="text-xs text-gray-600">Führerschein</div>
+                <div className="font-semibold">Klasse C1E</div>
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <div className="text-xs text-gray-600">Max. Speed</div>
+                <div className="font-semibold">84 km/h</div>
+              </div>
+            </div>
+          </Accordion>
+
+          <Accordion title="Oldtimer-Vorteile">
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-gray-700">H-Kennzeichen (Oldtimer)</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span className="text-gray-700">Keine Maut, kein Sonntagsfahrverbot</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                <span className="text-gray-700">Keine Umweltzonenbeschränkung</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <span className="text-gray-700">Günstige Versicherung (ca. 170 €/Jahr)</span>
+              </div>
+            </div>
+          </Accordion>
+
+          <Accordion title="Zustand & Wartung">
+            <div className="space-y-3">
+              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+                <div className="font-semibold text-green-800 mb-1">TÜV neu (November 2024)</div>
+                <div className="text-green-700 text-sm">Technisch einwandfrei</div>
+              </div>
+              <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="font-semibold text-blue-800 mb-1">Restauriert & renoviert</div>
+                <div className="text-blue-700 text-sm">Neue Lenkung, neu lackiert, Unterboden erneuert</div>
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="font-semibold text-gray-800 mb-1">Wertgutachten 2022</div>
+                <div className="text-gray-700 text-sm">Professionell bewertet: 20.000 €</div>
+              </div>
+            </div>
+          </Accordion>
         </div>
 
         <div className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-3xl p-8 lg:p-12 text-center">

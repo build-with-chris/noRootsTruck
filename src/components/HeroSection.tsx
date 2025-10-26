@@ -11,7 +11,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/Hero.jpg"
@@ -24,17 +24,28 @@ export default function HeroSection() {
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
-      <div className={`relative z-10 text-center text-white section-padding transition-all duration-1000 ${
+      {/* Desktop Layout */}
+      <div className={`hidden lg:block relative z-10 text-center text-white section-padding transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}>
         <div className="container-max">
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
-            Ein Zuhause auf Rädern
-          </h1>
-          <div className="text-xl sm:text-2xl lg:text-3xl font-light mb-4 text-balance">
-            Der NO ROOTS FAMILY TRUCK
+          {/* Überschrift höher positioniert */}
+          <div className="pt-20">
+            <h1 className="font-serif text-5xl xl:text-7xl font-bold mb-4 text-balance leading-tight">
+              Ein Zuhause auf Rädern
+            </h1>
+            <div className="text-2xl xl:text-3xl font-light mb-8 text-balance">
+              Der NO ROOTS FAMILY TRUCK
+            </div>
           </div>
+        </div>
+      </div>
 
+      {/* Content tiefer positioniert - Desktop */}
+      <div className={`hidden lg:block relative z-10 text-center text-white section-padding mt-auto pb-32 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
+        <div className="container-max">
           <div className="glass-effect rounded-2xl p-6 sm:p-8 mb-8 max-w-3xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm sm:text-base">
               <div className="text-center">
@@ -55,7 +66,6 @@ export default function HeroSection() {
               <div className="text-center">
                 <div className="font-semibold text-primary-200">Preis</div>
                 <div className="text-lg font-bold">280.000 €</div>
-                <div className="text-xs text-primary-300">VB</div>
               </div>
             </div>
           </div>
@@ -68,6 +78,39 @@ export default function HeroSection() {
               Besichtigung vereinbaren
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Layout - Überschrift höher */}
+      <div className={`lg:hidden relative z-10 text-center text-white section-padding transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
+        <div className="container-max">
+          {/* Überschrift höher positioniert */}
+          <div className="pt-16">
+            <h1 className="font-serif text-4xl sm:text-5xl font-bold mb-6 text-balance leading-tight">
+              Ein Zuhause auf Rädern
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Content tiefer positioniert */}
+      <div className={`lg:hidden relative z-10 text-center text-white section-padding mt-auto pb-24 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
+        <div className="container-max">
+          <div className="glass-effect rounded-2xl p-6 mb-8 max-w-lg mx-auto">
+            <div className="text-center">
+              <div className="font-light text-primary-200 mb-2">Deine Investition in</div>
+              <div className="text-xl font-bold mb-4">maximale Freiheit</div>
+              <div className="text-2xl font-bold text-primary-300">280.000 €</div>
+            </div>
+          </div>
+
+          <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl">
+            Mehr erfahren
+          </button>
         </div>
       </div>
 

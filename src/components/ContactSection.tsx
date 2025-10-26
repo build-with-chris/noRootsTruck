@@ -24,7 +24,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-900 text-white">
+    <section id="contact" className="py-20 lg:py-32 pb-24 lg:pb-32 bg-gray-900 text-white">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-primary-300 uppercase tracking-wider mb-4">
@@ -48,7 +48,7 @@ export default function ContactSection() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-primary-300 mb-2">280.000 €</div>
-                <div className="text-lg text-gray-300">Verhandlungsbasis</div>
+                <div className="text-lg text-gray-300">Festpreis</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-accent-300 mb-2">44 m²</div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function CharacterSection() {
   return (
-    <section className="py-20 lg:py-32 elegant-gradient">
+    <section id="character" className="py-20 lg:py-32 elegant-gradient">
       <div className="container-max section-padding">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">

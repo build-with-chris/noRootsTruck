@@ -61,7 +61,7 @@ export default function TechSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section id="equipment" className="py-20 lg:py-32 bg-white">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-4">

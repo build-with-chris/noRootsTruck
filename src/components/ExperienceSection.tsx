@@ -31,7 +31,7 @@ export default function ExperienceSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 elegant-gradient">
+    <section id="experience" className="py-20 lg:py-32 elegant-gradient">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">
@@ -135,7 +135,7 @@ export default function ExperienceSection() {
 
             <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-6">
               <h4 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                "Sofort einsatzbereit"
+                &quot;Sofort einsatzbereit&quot;
               </h4>
               <p className="text-gray-700">
                 Vom privaten Kinoabend bis zum Festival – autark, eindrucksvoll und

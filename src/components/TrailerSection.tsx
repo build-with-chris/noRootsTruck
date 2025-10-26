@@ -20,7 +20,7 @@ export default function TrailerSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 elegant-gradient">
+    <section id="trailer" className="py-20 lg:py-32 elegant-gradient">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-4">

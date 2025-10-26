@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
 import CharacterSection from '@/components/CharacterSection'
 import TruckSection from '@/components/TruckSection'
@@ -10,6 +11,7 @@ import ContactSection from '@/components/ContactSection'
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <Navigation />
       <HeroSection />
       <CharacterSection />
       <TruckSection />

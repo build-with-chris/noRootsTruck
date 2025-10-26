@@ -46,7 +46,7 @@ export default function TechnicalDataSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section id="technical" className="py-20 lg:py-32 bg-white">
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="text-sm font-semibold text-accent-600 uppercase tracking-wider mb-4">
@@ -172,24 +172,28 @@ export default function TechnicalDataSection() {
 
             <div className="space-y-4">
               <div className="bg-white rounded-lg p-4 flex justify-between items-center">
-                <span className="text-gray-700">Fahrzeug-Anschaffung</span>
-                <span className="font-semibold text-gray-900">€ 85.000</span>
+                <span className="text-gray-700">Fahrzeug-Anschaffung & Restaurierung</span>
+                <span className="font-semibold text-gray-900">€ 125.000</span>
               </div>
               <div className="bg-white rounded-lg p-4 flex justify-between items-center">
-                <span className="text-gray-700">Trailer & Ausbau</span>
-                <span className="font-semibold text-gray-900">€ 145.000</span>
+                <span className="text-gray-700">Trailer & Luxus-Ausbau</span>
+                <span className="font-semibold text-gray-900">€ 185.000</span>
               </div>
               <div className="bg-white rounded-lg p-4 flex justify-between items-center">
-                <span className="text-gray-700">Kino-System</span>
-                <span className="font-semibold text-gray-900">€ 35.000</span>
+                <span className="text-gray-700">Profi-Kino-System & Technik</span>
+                <span className="font-semibold text-gray-900">€ 65.000</span>
               </div>
               <div className="bg-white rounded-lg p-4 flex justify-between items-center">
-                <span className="text-gray-700">Wartung & Technik</span>
-                <span className="font-semibold text-gray-900">€ 16.600</span>
+                <span className="text-gray-700">Wartung & Premium-Ausstattung</span>
+                <span className="font-semibold text-gray-900">€ 45.000</span>
+              </div>
+              <div className="bg-white rounded-lg p-4 flex justify-between items-center">
+                <span className="text-gray-700">Arbeitszeit (800+ Stunden)</span>
+                <span className="font-semibold text-gray-900">€ 50.000</span>
               </div>
               <div className="bg-primary-200 rounded-lg p-4 flex justify-between items-center border-2 border-primary-300">
                 <span className="font-semibold text-gray-900">Gesamtinvestition</span>
-                <span className="font-bold text-xl text-primary-800">€ 281.600</span>
+                <span className="font-bold text-xl text-primary-800">€ 470.000</span>
               </div>
             </div>
 
