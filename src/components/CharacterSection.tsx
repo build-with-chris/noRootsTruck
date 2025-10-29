@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import MobileChapterTransition from './MobileChapterTransition'
 
 export default function CharacterSection() {
   return (
@@ -60,7 +59,7 @@ export default function CharacterSection() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary-200 to-accent-200 rounded-3xl opacity-20 blur-xl"></div>
               <Image
-                src="/images/History1.jpg"
+                src="/images/History1.webp"
                 alt="Motorsport-Vergangenheit - Vom Renntransporter zum Design-Loft"
                 width={600}
                 height={400}
@@ -71,13 +70,6 @@ export default function CharacterSection() {
         </div>
       </div>
 
-      <MobileChapterTransition
-        currentChapter="Kapitel 1"
-        currentTitle="Charakter & Geschichte"
-        nextChapter="Kapitel 2"
-        nextTitle="Zugmaschine"
-        nextId="truck"
-      />
     </section>
   )
 }

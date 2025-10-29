@@ -1,8 +1,22 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function TrailerSection() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  const galleryImages = [
+    { src: '/images/Gallery/20200806_181933.webp', alt: 'Trailer Innenansicht 1' },
+    { src: '/images/Gallery/20200806_181938.webp', alt: 'Trailer Innenansicht 2' },
+    { src: '/images/Gallery/20200806_182016.webp', alt: 'Trailer Innenansicht 3' },
+    { src: '/images/Gallery/20200806_182021.webp', alt: 'Trailer Innenansicht 4' },
+    { src: '/images/Gallery/20200806_182059.webp', alt: 'Trailer Innenansicht 5' },
+    { src: '/images/Gallery/20200806_182134.webp', alt: 'Trailer Innenansicht 6' },
+    { src: '/images/Gallery/20201004_161007.webp', alt: 'Trailer Innenansicht 7' },
+    { src: '/images/Gallery/20201004_170347.webp', alt: 'Trailer Innenansicht 8' },
+  ]
+
   const roomData = [
     { name: 'Küche', size: '8,5 m²', description: 'Ahorn-Arbeitsplatte, große Eckbank mit Stauraum' },
     { name: 'Esszimmer', size: '9,9 m²', description: 'Esstisch 2,2 × 1,3 m (umklappbar zur Liegefläche)' },
@@ -137,7 +151,7 @@ export default function TrailerSection() {
                       <div className="text-sm text-primary-600">7,7 m²</div>
                     </div>
                     <div className="bg-accent-100 rounded-lg p-4 text-center">
-                      <div className="font-semibold text-accent-800">Chill-/Leseraum</div>
+                      <div className="font-semibold text-accent-800">Leseraum</div>
                       <div className="text-sm text-accent-600">6,6 m²</div>
                     </div>
                   </div>
@@ -229,34 +243,87 @@ export default function TrailerSection() {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="relative">
-              <Image
-                src="/images/Funiture2.jpg"
-                alt="Wohnbereich mit hochwertigen Materialien"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Wohnbereich</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <Image
-                src="/images/Funiture3.jpg"
-                alt="Küche mit Ahorn-Arbeitsplatte"
-                width={600}
-                height={300}
-                className="rounded-2xl shadow-xl object-cover w-full h-72"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Küche & Esszimmer</span>
-              </div>
+          <div className="relative">
+            <Image
+              src="/images/Materials.webp"
+              alt="Küche mit hochwertigen Materialien - Backsteinwand, Holzarbeitsplatte und Kaminofen"
+              width={800}
+              height={1200}
+              className="rounded-2xl shadow-xl object-contain w-full max-h-[calc(100%-5rem)]"
+            />
+            <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
+              <span className="text-white font-semibold">Küche & Materialien</span>
             </div>
           </div>
         </div>
+
+        {/* Gallery Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Impressionen aus dem Trailer
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Entdecken Sie die liebevoll gestalteten Räume und die einzigartige Atmosphäre unseres Wohntrailers
+            </p>
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative aspect-square overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white bg-opacity-90 rounded-full p-3">
+                      <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal for enlarged image */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-4xl max-h-full">
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200"
+              >
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <Image
+                src={selectedImage}
+                alt="Enlarged trailer view"
+                width={800}
+                height={600}
+                className="rounded-lg object-contain max-w-full max-h-full"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

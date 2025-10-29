@@ -6,6 +6,7 @@ import MobileNavigation from './MobileNavigation'
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
   const [isVisible, setIsVisible] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   const sections = useMemo(() => [
     { id: 'hero', label: 'Start', chapter: 'Willkommen' },
@@ -22,6 +23,11 @@ export default function Navigation() {
     const handleScroll = () => {
       // Show navigation after scrolling past hero
       setIsVisible(window.scrollY > 300)
+
+      // Calculate scroll progress
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = scrollHeight > 0 ? Math.min(100, (window.scrollY / scrollHeight) * 100) : 0
+      setScrollProgress(progress)
 
       // Update active section based on scroll position
       const scrollPosition = window.scrollY + 200
@@ -48,8 +54,8 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Fixed Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300 ${
+      {/* Fixed Navigation - Desktop Only */}
+      <nav className={`hidden lg:block fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}>
         <div className="container-max section-padding">
@@ -60,7 +66,7 @@ export default function Navigation() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="flex items-center space-x-1">
               {sections.map((section) => (
                 <button
                   key={section.id}
@@ -75,10 +81,18 @@ export default function Navigation() {
                   <div>{section.label}</div>
                 </button>
               ))}
-            </div>
 
-            {/* Mobile Menu Placeholder */}
-            <div className="lg:hidden w-10"></div>
+              {/* Desktop Inspection Button */}
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="ml-4 bg-gradient-to-r from-accent-500 to-primary-600 hover:from-accent-600 hover:to-primary-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 flex items-center space-x-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>Besichtigung</span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -91,7 +105,7 @@ export default function Navigation() {
           <div
             className="h-full bg-gradient-to-r from-primary-500 to-accent-500 transition-all duration-300"
             style={{
-              width: `${typeof window !== 'undefined' ? Math.min(100, (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100) : 0}%`
+              width: `${scrollProgress}%`
             }}
           />
         </div>

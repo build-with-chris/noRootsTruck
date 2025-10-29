@@ -1,8 +1,10 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function TechnicalDataSection() {
+  const [expandedCategory, setExpandedCategory] = useState<number | null>(null)
   const vehicleData = [
     { category: 'Fahrzeug', items: [
       { label: 'Gesamtlänge', value: '12,5 m' },
@@ -23,7 +25,7 @@ export default function TechnicalDataSection() {
     { category: 'Wartung & Dokumentation', items: [
       { label: 'TÜV', value: 'Neu (2024)' },
       { label: 'AU', value: 'Neu (2024)' },
-      { label: 'Hauptuntersuchung', value: 'Alle 2 Jahre' },
+      { label: 'Hauptuntersuchung', value: 'Jährlich' },
       { label: 'Service-Intervall', value: '15.000 km' },
       { label: 'Wertgutachten', value: 'Vorhanden' },
       { label: 'Fahrzeugbrief', value: 'Vorhanden' },
@@ -60,8 +62,8 @@ export default function TechnicalDataSection() {
           </p>
         </div>
 
-        {/* Technical Data Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        {/* Technical Data Grid - Desktop */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-16">
           {vehicleData.map((section, sectionIndex) => (
             <div key={sectionIndex} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-xl border border-gray-100">
               <h3 className="font-serif text-xl font-bold text-gray-900 mb-6 flex items-center">
@@ -75,6 +77,48 @@ export default function TechnicalDataSection() {
                     <span className="text-gray-900 font-semibold">{item.value}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Technical Data Accordion - Mobile */}
+        <div className="lg:hidden space-y-4 mb-16">
+          {vehicleData.map((section, sectionIndex) => (
+            <div key={sectionIndex} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+              <button
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setExpandedCategory(expandedCategory === sectionIndex ? null : sectionIndex)
+                }}
+                className="w-full p-6 text-left flex items-center bg-white hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
+              >
+                <svg
+                  className={`w-5 h-5 text-gray-500 transition-transform duration-200 mr-3 ${
+                    expandedCategory === sectionIndex ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <div className="w-3 h-3 bg-primary-500 rounded-full mr-3"></div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">{section.category}</h3>
+              </button>
+
+              <div className={`transition-all duration-300 ${
+                expandedCategory === sectionIndex ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              } overflow-hidden`}>
+                <div className="px-6 pb-6 space-y-3">
+                  {section.items.map((item, itemIndex) => (
+                    <div key={itemIndex} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0">
+                      <span className="text-gray-600 font-medium text-sm">{item.label}</span>
+                      <span className="text-gray-900 font-semibold text-sm">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

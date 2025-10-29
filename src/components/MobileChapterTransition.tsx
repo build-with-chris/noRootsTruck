@@ -28,7 +28,7 @@ export default function MobileChapterTransition({
         <div className="flex items-center justify-between">
           <div className="flex-1">
             <div className="text-xs text-gray-500 mb-1">
-              {currentChapter} abgeschlossen ✓
+              {currentChapter}
             </div>
             <div className="text-sm font-medium text-gray-700 mb-2">
               {currentTitle}

@@ -2,9 +2,11 @@
 
 import Image from 'next/image'
 import Accordion from './Accordion'
-import MobileChapterTransition from './MobileChapterTransition'
+import { useState } from 'react'
 
 export default function TruckSection() {
+  const [isTechnicalDataOpen, setIsTechnicalDataOpen] = useState(false)
+
   const technicalData = [
     { label: 'Modell', value: 'Daimler-Benz 1017 S' },
     { label: 'Baujahr', value: '1980' },
@@ -50,8 +52,8 @@ export default function TruckSection() {
           </p>
         </div>
 
-        {/* Technische Daten - Full Width */}
-        <div className="mb-16">
+        {/* Technische Daten - Desktop Grid */}
+        <div className="mb-16 hidden lg:block">
           <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 mb-8">
             <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Technische Daten</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -65,36 +67,77 @@ export default function TruckSection() {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Unser Meisterwerk - Full Width Hero Image */}
-          <div className="mb-16">
-            <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Unser Meisterwerk</h3>
-            {/* Desktop - with red background */}
-            <div className="hidden lg:block relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/Overview.jpg"
-                alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
-                width={1600}
-                height={800}
-                className="object-contain w-full h-[600px]"
-              />
-              <div className="absolute bottom-8 left-8 glass-effect rounded-xl px-8 py-4">
-                <span className="text-white font-bold text-xl">Daimler-Benz 1017 S - Außenansicht</span>
+        {/* Technische Daten - Mobile Accordion */}
+        <div className="mb-16 lg:hidden">
+          <div className="bg-gray-50 rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                setIsTechnicalDataOpen(!isTechnicalDataOpen)
+              }}
+              className="w-full p-6 text-left flex items-center bg-white hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
+            >
+              <div className="flex items-center">
+                <svg
+                  className={`w-5 h-5 text-gray-500 transition-transform duration-200 mr-3 ${
+                    isTechnicalDataOpen ? 'rotate-180' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <h3 className="font-serif text-xl font-bold text-gray-900">Technische Daten</h3>
+              </div>
+            </button>
+
+            <div className={`transition-all duration-300 ${
+              isTechnicalDataOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+            } overflow-hidden`}>
+              <div className="px-6 pb-6 space-y-3">
+                {technicalData.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-3 border-b border-gray-200 last:border-0">
+                    <span className="text-gray-600 font-medium text-sm">{item.label}</span>
+                    <span className="text-gray-900 font-semibold text-sm text-right">{item.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Mobile - without red background */}
-            <div className="lg:hidden relative rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/Overview.jpg"
-                alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
-                width={1600}
-                height={800}
-                className="object-cover w-full h-[400px] rounded-3xl"
-              />
-              <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">Daimler-Benz 1017 S</span>
-              </div>
+        {/* Unser Meisterwerk - Full Width Hero Image */}
+        <div className="mb-16">
+          <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Unser Meisterwerk</h3>
+          {/* Desktop - with red background */}
+          <div className="hidden lg:block relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/Overview.jpg"
+              alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
+              width={1600}
+              height={800}
+              className="object-contain w-full h-[600px]"
+            />
+            <div className="absolute bottom-8 left-8 glass-effect rounded-xl px-8 py-4">
+              <span className="text-white font-bold text-xl">Daimler-Benz 1017 S - Außenansicht</span>
+            </div>
+          </div>
+
+          {/* Mobile - without red background */}
+          <div className="lg:hidden relative rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/Overview.jpg"
+              alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
+              width={1600}
+              height={800}
+              className="object-cover w-full h-[400px] rounded-3xl"
+            />
+            <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
+              <span className="text-white font-semibold">Daimler-Benz 1017 S</span>
             </div>
           </div>
         </div>
@@ -106,43 +149,23 @@ export default function TruckSection() {
             {features.map((feature, index) => (
               <div key={index} className="group relative flex items-start space-x-4 p-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl hover:shadow-accent-500/20 hover:-translate-y-2 hover:border-accent-300 transition-all duration-300 cursor-pointer min-h-[100px]">
                 <div className="w-3 h-3 bg-accent-500 rounded-full flex-shrink-0 mt-1 group-hover:bg-accent-600 transition-colors duration-300 shadow-sm"></div>
-                <span className="text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-300">{feature}</span>
-
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent-400/20 to-primary-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="flex-1">
+                  <span className="text-gray-800 font-medium leading-relaxed group-hover:text-gray-900 transition-colors duration-300 text-sm">
+                    {feature}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Mobile Accordions */}
-        <div className="lg:hidden mb-16">
-          <Accordion title="Technische Highlights" defaultOpen={true}>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 bg-white rounded-lg border border-gray-200">
-                <div className="text-xs text-gray-700 font-medium">Motor</div>
-                <div className="font-bold text-gray-900">168 PS Diesel</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg border border-gray-200">
-                <div className="text-xs text-gray-700 font-medium">Hubraum</div>
-                <div className="font-bold text-gray-900">5.675 cm³</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg border border-gray-200">
-                <div className="text-xs text-gray-700 font-medium">Führerschein</div>
-                <div className="font-bold text-gray-900">Klasse C1E</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg border border-gray-200">
-                <div className="text-xs text-gray-700 font-medium">Max. Speed</div>
-                <div className="font-bold text-gray-900">84 km/h</div>
-              </div>
-            </div>
-          </Accordion>
-
+        {/* Accordion - Mobile Only */}
+        <div className="mb-16 lg:hidden">
           <Accordion title="Oldtimer-Vorteile">
             <div className="space-y-3">
               <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700">H-Kennzeichen (Oldtimer)</span>
+                <span className="text-gray-700">Oldtimerzulassung (H-Kennzeichen)</span>
               </div>
               <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -199,14 +222,6 @@ export default function TruckSection() {
           </div>
         </div>
       </div>
-
-      <MobileChapterTransition
-        currentChapter="Kapitel 2"
-        currentTitle="Zugmaschine"
-        nextChapter="Kapitel 3"
-        nextTitle="Wohntrailer"
-        nextId="trailer"
-      />
     </section>
   )
 }
