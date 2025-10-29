@@ -14,7 +14,7 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/Images/Hero.webp"
+          src="/images/Hero.webp"
           alt="NO ROOTS FAMILY TRUCK - Ein Zuhause auf Rädern"
           fill
           className="object-cover lg:object-center"
