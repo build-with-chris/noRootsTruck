@@ -18,19 +18,19 @@ export default function TrailerSection() {
   ]
 
   const roomData = [
-    { name: 'Küche', size: '8,5 m²', description: 'Ahorn-Arbeitsplatte, große Eckbank mit Stauraum' },
-    { name: 'Esszimmer', size: '9,9 m²', description: 'Esstisch 2,2 × 1,3 m (umklappbar zur Liegefläche)' },
-    { name: 'Wohnzimmer', size: '8,5 m²', description: 'Schlafcouch, Schränke, Schiebetür' },
-    { name: 'Badezimmer', size: '2,2 m²', description: 'Dusche, antikes Holzgärkorb-Waschbecken, Natursteinboden' },
-    { name: 'Schlafzimmer (oben)', size: '7,7 m²', description: 'Bambus-Design, Federkernmatratzen' },
-    { name: 'Chill-/Leseraum (oben)', size: '6,6 m²', description: 'Wandposter, Spachteltechnik, Regal' },
+    { name: 'Küche', size: '8,5 m²', description: 'Küchenzeile mit Unterschränken, Gläserboard und Holzbackofen' },
+    { name: 'Esszimmer', size: '9,9 m²', description: 'Hochklappbarer Tisch für 12 Personen mit großzügiger Eckbank. Raumteiler mit Vorrats- und Technikschrank' },
+    { name: 'Wohnzimmer', size: '8,5 m²', description: 'Treppenschrank, Stauraum, Schrank und Hängeschränke. Schlafcouch mit Sitzgruppe und Tischchen, abtrennbar mit Schiebetüre' },
+    { name: 'Badezimmer', size: '2,2 m²', description: 'Dusche mit Glaskabine, Holzwaschbecken mit Unterschrank, Armaturen aus Messing antik, Fensterspiegel mit Utensilien-Halterungen, Flusskiesel-Boden, Strand-Poster, Schiebetüre, Chemietoilette' },
+    { name: 'Schlafzimmer (oben)', size: '7,7 m²', description: 'Echter Bambus-Deko, Design-Nachttischbeleuchtung, Bett aus Fichte-Altholz, Taschenfederkernmatratzen' },
+    { name: 'Chill-/Leseraum (oben)', size: '6,6 m²', description: 'Offenes Einbauregal, Design-Leseleuchten, klappbarer Stauraumschrank, schwarz-weiß Wandposter, handgefertigte Dekokissen, auberginenfarbiger Fichtenboden' },
   ]
 
   const materials = [
-    { name: 'Birke', usage: 'Hinterlüftete Verkleidung, Möbel', icon: '🌳' },
-    { name: 'Eukalyptus', usage: 'Böden und Akzente', icon: '🌿' },
-    { name: 'Fichte (200 Jahre alt)', usage: 'Historische Holzelemente', icon: '🪵' },
-    { name: 'Naturwachs', usage: 'Oberflächenbehandlung', icon: '✨' },
+    { name: 'Eukalyptusholz-Decke', usage: 'Hinterlüftete Lamellendecke aus Eukalyptusholz', icon: '🌿' },
+    { name: 'Birke Vorsatzwände', usage: 'Hinterlüftete Vorsatzwände aus Birke mit Struktur- und Design-Tapeten im Retro-Look', icon: '🌳' },
+    { name: 'Fichte (200 Jahre alt)', usage: '200 Jahre alter antiker Fichtendielenboden, gebürstet und gewachst', icon: '🪵' },
+    { name: 'Schrankfronten', usage: 'Birke mit individuell gestalteter Oberfläche mit antiker Risslack-Struktur. Beschläge in Messing mit drehbarer Einrastfunktion', icon: '✨' },
   ]
 
   return (
@@ -235,9 +235,11 @@ export default function TrailerSection() {
                 Atmosphäre & Ambiente
               </h4>
               <p className="text-gray-700">
-                Komplettumbau 2017–2020 mit ausschließlich natürlichen Materialien: Armaflex-Dämmung,
-                hinterlüftete Birkenholzverkleidung. Verwendung von Birke, Eukalyptus und
-                200 Jahre alter Fichte. Alle Holzoberflächen mit Naturwachs behandelt für natürliches Raumklima.
+                Atmosphäre und Ambiente vorwiegend mit natürlichen Materialien: Hinterlüftete Lamellendecke aus Eukalyptusholz,
+                hinterlüftete Vorsatzwände aus Birke mit Struktur- und Design-Tapeten im Retro-Look.
+                200 Jahre alter antiker Fichtendielenboden, gebürstet und gewachst.
+                Schrankfronten aus Birke mit individuell gestalteter Oberfläche mit antiker Risslack-Struktur.
+                Beschläge in Messing mit drehbarer Einrastfunktion.
                 11 große Fenster sorgen für optimale Lichtverhältnisse und Frischluftzirkulation.
               </p>
             </div>

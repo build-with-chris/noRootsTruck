@@ -11,13 +11,13 @@ export default function ExperienceSection() {
     },
     {
       title: 'Event-Location',
-      size: 'Bis 50 Personen',
-      description: 'Mobile Veranstaltungslocation für private Feiern, Firmenevent oder Festivals'
+      size: '100-500 Personen',
+      description: 'Mobile Veranstaltungslocation für private Feiern, Firmenevents oder Festivals'
     },
     {
-      title: 'Autarker Betrieb',
-      size: '7+ Tage',
-      description: 'Vollständig autark für mehrtägige Events ohne externe Stromversorgung'
+      title: 'Sofort einsatzbereit',
+      size: 'Ca. 5 Stunden',
+      description: 'Der komplette Aufbau dauert ca. 5 Stunden'
     }
   ]
 
@@ -66,29 +66,25 @@ export default function ExperienceSection() {
             <div className="p-8 lg:p-12 flex flex-col justify-center">
               <div className="text-6xl mb-6">🎬</div>
               <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Open-Air-Kino der Extraklasse
+                Open Air Kino der Extraklasse
               </h3>
               <div className="space-y-4 text-gray-700">
                 <p className="text-lg">
-                  Das Herzstück der Event-Ausstattung: Eine massive 44 m² Leinwand verwandelt
+                  Das Herzstück der Event-Ausstattung: Eine mega 44 Quadratmeter Leinwand verwandelt
                   jeden Ort in ein eindrucksvolles Freiluftkino.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Professioneller 4K-Projektor</span>
+                    <span>Professioneller HD Projektor</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Surround-Sound-System</span>
+                    <span>Einzigartiger Sound mit Floor-Speaker-System</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Automatischer Leinwand-Aufbau</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Wetterbeständiges System</span>
+                    <span>Technik zu bedienen im Führerhaus: Video-Mischpult, Funkmikrofone und Audiomischpult für Kino und Live-Produktionen</span>
                   </div>
                 </div>
               </div>
@@ -139,7 +135,7 @@ export default function ExperienceSection() {
               </h4>
               <p className="text-gray-700">
                 Vom privaten Kinoabend bis zum Festival – autark, eindrucksvoll und
-                sofort einsatzbereit. Der komplette Aufbau dauert nur 30 Minuten.
+                sofort einsatzbereit. Der komplette Aufbau dauert ca. 5 Stunden.
               </p>
             </div>
           </div>

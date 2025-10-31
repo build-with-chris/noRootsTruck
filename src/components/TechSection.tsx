@@ -27,7 +27,7 @@ export default function TechSection() {
         '230 Liter Wassertank',
         'Warmwasseraufbereitung',
         'Druckwassersystem',
-        'Abwassertank'
+        'Ohne Abwassertank'
       ]
     },
     {
@@ -40,7 +40,7 @@ export default function TechSection() {
       items: [
         'Holzofen (gemütlich)',
         'Dieselheizung (effizient)',
-        'Fußbodenheizung',
+        'Raum-Umluftsystem',
         'Isolierung Premium'
       ]
     },
@@ -55,7 +55,7 @@ export default function TechSection() {
         'CO₂-Schutz System',
         'Rauchmelder',
         'Feuerlöscher',
-        'Gaswarnsystem'
+        'Kein Gas = kein Gaswarnsystem nötig'
       ]
     }
   ]

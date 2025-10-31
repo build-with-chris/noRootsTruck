@@ -27,8 +27,8 @@ export default function TechnicalDataSection() {
       { label: 'AU', value: 'Neu (2024)' },
       { label: 'Hauptuntersuchung', value: 'Jährlich' },
       { label: 'Service-Intervall', value: '15.000 km' },
-      { label: 'Wertgutachten', value: 'Vorhanden' },
-      { label: 'Fahrzeugbrief', value: 'Vorhanden' },
+      { label: 'Dokumentation Zugmaschine', value: 'Vollständig vorhanden' },
+      { label: 'Dokumentation Ausbau', value: 'Nicht verfügbar für diesen Preis' },
     ]},
     { category: 'Versicherung & Kosten', items: [
       { label: 'Versicherungsklasse', value: 'Oldtimer (H)' },
@@ -172,18 +172,6 @@ export default function TechnicalDataSection() {
             </h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v6a2 2 0 002 2h2m0 0h2m-2 0v4m0-4V9a2 2 0 012-2h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-2 0V9" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Wertgutachten</h4>
-                  <p className="text-gray-600">Offizielles Gutachten bestätigt Fahrzeugwert von € 320.000</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -203,7 +191,7 @@ export default function TechnicalDataSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Dokumentation</h4>
-                  <p className="text-gray-600">Lückenlose Dokumentation aller Arbeiten und Investitionen</p>
+                  <p className="text-gray-600">Komplette Dokumentation für die Zugmaschine vorhanden. Ausbau-Dokumentation nicht im Preis enthalten.</p>
                 </div>
               </div>
             </div>
