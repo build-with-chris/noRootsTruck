@@ -54,48 +54,6 @@ export default function TrailerSection() {
             Grundriss & Raumaufteilung
           </h3>
 
-          {/* Video Section */}
-          <div className="mb-16 bg-gradient-to-r from-primary-50 to-accent-50 rounded-3xl p-8 lg:p-12 border border-primary-200">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h4 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                  Erleben Sie den NO ROOTS FAMILY TRUCK in Aktion
-                </h4>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Sehen Sie sich dieses Video an, während Sie die Raumaufteilung und Grundriss studieren. 
-                  Lassen Sie sich von der Qualität und den Möglichkeiten überzeugen.
-                </p>
-                <div className="space-y-4 text-gray-700">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Professionelle Ausstattung und Handwerkskunst</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>44 m² intelligente Raumaufteilung</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Einzigartiges mobiles Zuhause mit Event-Technik</span>
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <video
-                    className="w-full h-auto"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster="/images/Hero.jpg"
-                  >
-                    <source src="/images/Family-Truck-Trailer-small.mp4" type="video/mp4" />
-                    Ihr Browser unterstützt das Video-Tag nicht.
-                  </video>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Desktop Floor Plan */}
           <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
