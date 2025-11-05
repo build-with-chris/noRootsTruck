@@ -68,6 +68,60 @@ export default function CharacterSection() {
             </div>
           </div>
         </div>
+
+        {/* Video Preview - How the Truck Looks Today */}
+        <div className="mt-20 bg-gradient-to-r from-primary-50 to-accent-50 rounded-3xl p-8 lg:p-12 border border-primary-200">
+          <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center lg:mb-12">
+            So sieht der NO ROOTS FAMILY TRUCK heute aus
+          </h3>
+          
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+            {/* Video groß links - 2 Spalten */}
+            <div className="lg:col-span-2 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
+                <video
+                  className="w-full h-auto"
+                  controls
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  preload="auto"
+                  poster="/images/Hero.jpg"
+                >
+                  <source src="/images/Family-Truck-Trailer-small.mp4" type="video/mp4" />
+                  Ihr Browser unterstützt das Video-Tag nicht.
+                </video>
+              </div>
+            </div>
+
+            {/* Text rechts - 1 Spalte */}
+            <div className="lg:col-span-1 space-y-6 text-gray-700">
+              <div>
+                <p className="text-lg leading-relaxed mb-4">
+                  Erleben Sie einen ersten Eindruck von diesem außergewöhnlichen Fahrzeug.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Vom Renntransporter zum luxuriösen mobilen Zuhause – sehen Sie das Ergebnis der liebevollen Transformation.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <span>Luxuriöses mobiles Zuhause auf 44 m²</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <span>Professionelle Ausstattung und Handwerkskunst</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <span>Einzigartiges Event- und Wohnfahrzeug</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </section>

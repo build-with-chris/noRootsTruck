@@ -200,25 +200,15 @@ export default function TruckSection() {
           </Accordion>
         </div>
 
-        <div className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-3xl p-8 lg:p-12 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-              Oldtimer-Charme trifft moderne Zuverlässigkeit
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Der rote Daimler-Benz 1017 S vereint das Beste aus zwei Welten: den unverwechselbaren Charme
-              eines echten Oldtimers mit der Zuverlässigkeit kontinuierlicher Wartung.
-              Mit 910.000 km Laufleistung und jährlicher Wartung steht er bereit für weitere Abenteuer.
-            </p>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="font-semibold text-green-800">Wertgutachten 2022: 20.000 €</span>
-              </div>
-              <p className="text-sm text-green-700">
-                Professionell bewerteter Fahrzeugwert bestätigt die Qualität und den Zustand
-              </p>
-            </div>
+        {/* Badge für Wertgutachten */}
+        <div className="flex justify-center mt-12">
+          <div className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 rounded-full px-4 py-2">
+            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-sm font-medium text-green-800">
+              2 Wertgutachten, die Zustand und Wert des Wagens bestätigen vorhanden
+            </span>
           </div>
         </div>
       </div>
