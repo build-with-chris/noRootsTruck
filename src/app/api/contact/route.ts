@@ -3,7 +3,17 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    let body
+    try {
+      body = await request.json()
+    } catch (parseError) {
+      console.error('Fehler beim Parsen des Request-Bodies:', parseError)
+      return NextResponse.json(
+        { error: 'Ungültige Anfrage' },
+        { status: 400 }
+      )
+    }
+
     const { name, email, phone, message, honeypot } = body
 
     // Honeypot-Check: Wenn das Honeypot-Feld ausgefüllt wurde, ist es ein Bot
@@ -30,9 +40,17 @@ export async function POST(request: NextRequest) {
 
     // Validierung der SMTP-Konfiguration
     if (!smtpHost || !smtpUser || !smtpPassword) {
-      console.error('SMTP-Konfiguration fehlt. Bitte setzen Sie SMTP_HOST, SMTP_USER und SMTP_PASSWORD in den Umgebungsvariablen.')
+      const missingVars = []
+      if (!smtpHost) missingVars.push('SMTP_HOST')
+      if (!smtpUser) missingVars.push('SMTP_USER')
+      if (!smtpPassword) missingVars.push('SMTP_PASSWORD')
+      
+      console.error('SMTP-Konfiguration fehlt:', missingVars.join(', '))
       return NextResponse.json(
-        { error: 'E-Mail-Server ist nicht konfiguriert' },
+        { 
+          error: 'E-Mail-Server ist nicht konfiguriert',
+          details: `Fehlende Umgebungsvariablen: ${missingVars.join(', ')}`
+        },
         { status: 500 }
       )
     }
@@ -71,20 +89,54 @@ export async function POST(request: NextRequest) {
     `
 
     // E-Mail versenden
-    const info = await transporter.sendMail({
-      from: `Kontaktformular <${smtpFrom}>`,
-      to: 'chris.hermann1@gmx.de',
-      replyTo: email,
-      subject: `Neue Kontaktanfrage von ${name}`,
-      html: htmlContent,
-      text: textContent,
-    })
+    let info
+    try {
+      info = await transporter.sendMail({
+        from: `Kontaktformular <${smtpFrom}>`,
+        to: 'chris.hermann1@gmx.de',
+        replyTo: email,
+        subject: `Neue Kontaktanfrage von ${name}`,
+        html: htmlContent,
+        text: textContent,
+      })
+    } catch (smtpError: any) {
+      console.error('SMTP-Versandfehler:', {
+        message: smtpError.message,
+        code: smtpError.code,
+        command: smtpError.command,
+        response: smtpError.response,
+      })
+      
+      // Detailliertere Fehlermeldung
+      let errorMessage = 'Fehler beim Versenden der E-Mail. Bitte versuchen Sie es später erneut.'
+      if (smtpError.code === 'EAUTH') {
+        errorMessage = 'Authentifizierungsfehler. Bitte überprüfen Sie die SMTP-Anmeldedaten.'
+      } else if (smtpError.code === 'ECONNECTION') {
+        errorMessage = 'Verbindungsfehler zum E-Mail-Server. Bitte überprüfen Sie die SMTP-Einstellungen.'
+      } else if (smtpError.response) {
+        errorMessage = `E-Mail-Server-Fehler: ${smtpError.response}`
+      }
+      
+      return NextResponse.json(
+        { 
+          error: errorMessage,
+          details: process.env.NODE_ENV === 'development' ? smtpError.message : undefined
+        },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json({ success: true, messageId: info.messageId }, { status: 200 })
-  } catch (error) {
-    console.error('SMTP error:', error)
+  } catch (error: any) {
+    console.error('Unerwarteter API-Fehler:', {
+      message: error?.message,
+      stack: error?.stack,
+    })
     return NextResponse.json(
-      { error: 'Fehler beim Versenden der E-Mail. Bitte versuchen Sie es später erneut.' },
+      { 
+        error: 'Ein unerwarteter Fehler ist aufgetreten',
+        details: process.env.NODE_ENV === 'development' ? error?.message : undefined
+      },
       { status: 500 }
     )
   }

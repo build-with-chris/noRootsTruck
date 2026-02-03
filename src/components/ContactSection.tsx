@@ -40,7 +40,9 @@ export default function ContactSection() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Ein Fehler ist aufgetreten')
+        const errorMessage = data.error || 'Ein Fehler ist aufgetreten'
+        const errorDetails = data.details ? ` (${data.details})` : ''
+        throw new Error(errorMessage + errorDetails)
       }
 
       // Erfolg
