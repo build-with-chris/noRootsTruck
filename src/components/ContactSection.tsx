@@ -1,73 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    honeypot: '' // Honeypot-Feld für Spam-Schutz
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null
-    message: string
-  }>({ type: null, message: '' })
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: '' })
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        const errorMessage = data.error || 'Ein Fehler ist aufgetreten'
-        const errorDetails = data.details ? ` (${data.details})` : ''
-        throw new Error(errorMessage + errorDetails)
-      }
-
-      // Erfolg
-      setSubmitStatus({
-        type: 'success',
-        message: 'Vielen Dank! Ihre Nachricht wurde erfolgreich versendet. Wir melden uns bald bei Ihnen.'
-      })
-      
-      // Formular zurücksetzen
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-        honeypot: ''
-      })
-    } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        message: error instanceof Error ? error.message : 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.'
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   return (
     <section id="contact" className="py-20 lg:py-32 pb-24 lg:pb-32 bg-gray-900 text-white">
@@ -138,146 +71,25 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* Contact Form & Info */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          <div>
-            <h3 className="font-serif text-2xl lg:text-3xl font-bold mb-8">
+        {/* Contact Info */}
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-2xl lg:text-3xl font-bold mb-6">
               Jetzt Kontakt aufnehmen
             </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Honeypot-Feld - versteckt für echte Benutzer, sichtbar für Bots */}
-              <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-                <label htmlFor="website">Website</label>
-                <input
-                  type="text"
-                  id="website"
-                  name="honeypot"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={formData.honeypot}
-                  onChange={handleInputChange}
-                />
-              </div>
-
-              {/* Status-Meldungen */}
-              {submitStatus.type && (
-                <div
-                  className={`p-4 rounded-lg ${
-                    submitStatus.type === 'success'
-                      ? 'bg-green-500/20 border border-green-500/50 text-green-300'
-                      : 'bg-red-500/20 border border-red-500/50 text-red-300'
-                  }`}
-                >
-                  {submitStatus.message}
-                </div>
-              )}
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                    placeholder="Ihr Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    E-Mail *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                    placeholder="ihre@email.de"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                  Telefon
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Ihre Telefonnummer"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Nachricht
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Ihre Nachricht oder Fragen..."
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="group flex-1 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-800 disabled:cursor-not-allowed text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:transform-none shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      <span>Wird gesendet...</span>
-                    </>
-                  ) : (
-                    <>
-                      <svg className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span>Besichtigung anfragen</span>
-                    </>
-                  )}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    // Create a simple PDF download simulation
-                    alert('PDF-Exposé wird vorbereitet und per E-Mail zugesandt!')
-                  }}
-                  className="group flex-1 bg-accent-600 hover:bg-accent-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                >
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  <span>PDF-Exposé anfordern</span>
-                </button>
-              </div>
-            </form>
+            <p className="text-lg text-gray-300 mb-8">
+              Haben Sie Fragen oder möchten Sie eine Besichtigung vereinbaren? Schreiben Sie uns einfach eine E-Mail.
+            </p>
+            
+            <a
+              href="mailto:info@werktraum.de?subject=Anfrage%20NO%20ROOTS%20FAMILY%20TRUCK&body=Sehr%20geehrte%20Damen%20und%20Herren%2C%0D%0A%0D%0AIch%20interessiere%20mich%20f%C3%BCr%20den%20NO%20ROOTS%20FAMILY%20TRUCK%20und%20m%C3%B6chte%20gerne%20eine%20Besichtigung%20vereinbaren.%0D%0A%0D%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen"
+              className="group inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl space-x-3"
+            >
+              <svg className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>E-Mail senden</span>
+            </a>
           </div>
 
           <div className="space-y-8">
@@ -307,7 +119,9 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">E-Mail</h4>
-                    <p className="text-gray-300">info@unterwegs-aufatmen.de</p>
+                    <a href="mailto:info@werktraum.de" className="text-gray-300 hover:text-primary-300 transition-colors">
+                      info@werktraum.de
+                    </a>
                   </div>
                 </div>
 
