@@ -55,8 +55,20 @@ Setzen Sie die Umgebungsvariablen in den Vercel-Projekteinstellungen unter **Set
 - **Host**: `mail.gmx.net`
 - **Port**: `587` (STARTTLS) oder `465` (SSL)
 - **SMTP_SECURE**: `false` für Port 587, `true` für Port 465
-- **User**: Vollständige GMX-E-Mail-Adresse
-- **Password**: GMX-Passwort
+- **User**: Vollständige GMX-E-Mail-Adresse (z.B. `chris.hermann1@gmx.de`)
+- **Password**: **WICHTIG**: GMX erfordert oft ein **App-Passwort** statt des normalen Passworts
+
+#### GMX App-Passwort einrichten:
+
+1. Loggen Sie sich in Ihr GMX-Konto ein
+2. Gehen Sie zu **Einstellungen → Sicherheit → App-Passwörter**
+3. Erstellen Sie ein neues App-Passwort für "E-Mail-Apps"
+4. Verwenden Sie dieses App-Passwort als `SMTP_PASSWORD` in den Umgebungsvariablen
+
+**Hinweis**: Wenn Sie weiterhin Authentifizierungsfehler erhalten, stellen Sie sicher, dass:
+- Die E-Mail-Adresse vollständig ist (inkl. @gmx.de)
+- Sie ein App-Passwort verwenden (nicht das normale GMX-Passwort)
+- Die SMTP-Einstellungen korrekt sind
 
 ### Alternative SMTP-Provider
 

@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Nodemailer Transporter erstellen
+    // GMX-spezifische Konfiguration
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
@@ -64,10 +65,16 @@ export async function POST(request: NextRequest) {
         user: smtpUser,
         pass: smtpPassword,
       },
-      // Für GMX und andere Provider, die TLS erfordern
+      // GMX erfordert explizite TLS-Konfiguration
+      requireTLS: true, // Erzwingt TLS für Port 587
       tls: {
-        rejectUnauthorized: false, // Für selbstsignierte Zertifikate
+        // Für GMX: Zertifikat-Validierung aktivieren
+        rejectUnauthorized: true,
+        minVersion: 'TLSv1.2',
       },
+      // Debug-Optionen (nur in Development)
+      debug: process.env.NODE_ENV === 'development',
+      logger: process.env.NODE_ENV === 'development',
     })
 
     // E-Mail-Inhalt
@@ -109,18 +116,35 @@ export async function POST(request: NextRequest) {
       
       // Detailliertere Fehlermeldung
       let errorMessage = 'Fehler beim Versenden der E-Mail. Bitte versuchen Sie es später erneut.'
+      let errorDetails = ''
+      
       if (smtpError.code === 'EAUTH') {
-        errorMessage = 'Authentifizierungsfehler. Bitte überprüfen Sie die SMTP-Anmeldedaten.'
+        errorMessage = 'Authentifizierungsfehler bei GMX.'
+        errorDetails = 'Bitte überprüfen Sie:\n' +
+          '1. SMTP_USER muss die vollständige E-Mail-Adresse sein (chris.hermann1@gmx.de)\n' +
+          '2. SMTP_PASSWORD muss korrekt sein\n' +
+          '3. Für GMX benötigen Sie möglicherweise ein App-Passwort statt des normalen Passworts\n' +
+          '4. Überprüfen Sie die GMX-Einstellungen für "Externe Apps"'
+        if (smtpError.response) {
+          errorDetails += `\nServer-Antwort: ${smtpError.response}`
+        }
       } else if (smtpError.code === 'ECONNECTION') {
-        errorMessage = 'Verbindungsfehler zum E-Mail-Server. Bitte überprüfen Sie die SMTP-Einstellungen.'
+        errorMessage = 'Verbindungsfehler zum E-Mail-Server.'
+        errorDetails = 'Bitte überprüfen Sie:\n' +
+          '1. SMTP_HOST ist korrekt (mail.gmx.net)\n' +
+          '2. SMTP_PORT ist korrekt (587 für STARTTLS oder 465 für SSL)\n' +
+          '3. Firewall/Netzwerk-Einstellungen'
       } else if (smtpError.response) {
         errorMessage = `E-Mail-Server-Fehler: ${smtpError.response}`
+        errorDetails = smtpError.message
+      } else {
+        errorDetails = smtpError.message
       }
       
       return NextResponse.json(
         { 
           error: errorMessage,
-          details: process.env.NODE_ENV === 'development' ? smtpError.message : undefined
+          details: process.env.NODE_ENV === 'development' ? errorDetails : (errorDetails || undefined)
         },
         { status: 500 }
       )
