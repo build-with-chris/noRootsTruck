@@ -54,7 +54,6 @@ export default function TrailerSection() {
             Grundriss & Raumaufteilung
           </h3>
 
-
           {/* Desktop Floor Plan */}
           <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
