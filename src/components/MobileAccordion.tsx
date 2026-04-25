@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import ClickableImage from './ClickableImage'
 
 interface AccordionItem {
   id: string
@@ -27,12 +27,13 @@ export default function MobileAccordion() {
       content: (
         <div className="space-y-4">
           <div className="relative rounded-xl overflow-hidden">
-            <Image
+            <ClickableImage
               src="/images/History1.jpg"
               alt="Impressionen des Trucks"
               width={400}
               height={200}
               className="w-full h-48 object-cover"
+              caption="Impressionen des Trucks"
             />
           </div>
         </div>
@@ -46,12 +47,13 @@ export default function MobileAccordion() {
       content: (
         <div className="space-y-4">
           <div className="relative rounded-xl overflow-hidden bg-red-600">
-            <Image
+            <ClickableImage
               src="/images/Overview.jpg"
               alt="Daimler-Benz 1017 S"
               width={400}
               height={200}
               className="w-full h-48 object-contain"
+              caption="Daimler-Benz 1017 S"
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -83,9 +85,9 @@ export default function MobileAccordion() {
       content: (
         <div className="space-y-4">
           <div className="grid grid-cols-3 gap-2">
-            <Image src="/images/Furniture1.jpg" alt="Möbel 1" width={120} height={80} className="w-full h-20 object-cover rounded-lg" />
-            <Image src="/images/Furniture2.jpg" alt="Möbel 2" width={120} height={80} className="w-full h-20 object-cover rounded-lg" />
-            <Image src="/images/Furniture3.jpg" alt="Möbel 3" width={120} height={80} className="w-full h-20 object-cover rounded-lg" />
+            <ClickableImage src="/images/Furniture1.jpg" alt="Möbel 1" width={120} height={80} className="w-full h-20 object-cover rounded-lg" caption="Möbel 1" />
+            <ClickableImage src="/images/Furniture2.jpg" alt="Möbel 2" width={120} height={80} className="w-full h-20 object-cover rounded-lg" caption="Möbel 2" />
+            <ClickableImage src="/images/Furniture3.jpg" alt="Möbel 3" width={120} height={80} className="w-full h-20 object-cover rounded-lg" caption="Möbel 3" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="p-3 bg-gray-50 rounded-lg text-center">
@@ -136,12 +138,13 @@ export default function MobileAccordion() {
       content: (
         <div className="space-y-4">
           <div className="relative rounded-xl overflow-hidden">
-            <Image
+            <ClickableImage
               src="/images/Outdoor Kino.jpg"
               alt="Open-Air-Kino"
               width={400}
               height={200}
               className="w-full h-48 object-cover"
+              caption="Open-Air-Kino"
             />
           </div>
           <div className="grid grid-cols-3 gap-3 text-center">

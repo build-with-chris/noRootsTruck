@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import ClickableImage from './ClickableImage'
 import Accordion from './Accordion'
 import { useState } from 'react'
 
@@ -114,12 +114,13 @@ export default function TruckSection() {
           <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Impressionen</h3>
           {/* Desktop - with red background */}
           <div className="hidden lg:block relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
-            <Image
+            <ClickableImage
               src="/images/Overview.jpg"
               alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
               width={1600}
               height={800}
               className="object-contain w-full h-[600px]"
+              caption="Daimler-Benz 1017 S - Außenansicht"
             />
             <div className="absolute bottom-8 left-8 glass-effect rounded-xl px-8 py-4">
               <span className="text-white font-bold text-xl">Daimler-Benz 1017 S - Außenansicht</span>
@@ -128,12 +129,13 @@ export default function TruckSection() {
 
           {/* Mobile - without red background */}
           <div className="lg:hidden relative rounded-3xl overflow-hidden shadow-2xl">
-            <Image
+            <ClickableImage
               src="/images/Overview.jpg"
               alt="Daimler-Benz 1017 S Außenansicht - NO ROOTS FAMILY TRUCK"
               width={1600}
               height={800}
               className="object-cover w-full h-[400px] rounded-3xl"
+              caption="Daimler-Benz 1017 S - Außenansicht"
             />
             <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
               <span className="text-white font-semibold">Daimler-Benz 1017 S</span>

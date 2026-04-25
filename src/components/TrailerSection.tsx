@@ -1,11 +1,8 @@
 'use client'
 
-import Image from 'next/image'
-import { useState } from 'react'
+import ClickableImage from './ClickableImage'
 
 export default function TrailerSection() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-
   const galleryImages = [
     { src: '/images/Gallery/20200806_181933.webp', alt: 'Trailer Innenansicht 1' },
     { src: '/images/Gallery/20200806_181938.webp', alt: 'Trailer Innenansicht 2' },
@@ -246,12 +243,13 @@ export default function TrailerSection() {
           </div>
 
           <div className="relative">
-            <Image
+            <ClickableImage
               src="/images/Materials.webp"
               alt="Küche mit hochwertigen Materialien - Backsteinwand, Holzarbeitsplatte und Kaminofen"
               width={800}
               height={1200}
               className="rounded-2xl shadow-xl object-contain w-full max-h-[calc(100%-5rem)]"
+              caption="Küche & Materialien"
             />
             <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
               <span className="text-white font-semibold">Küche & Materialien</span>
@@ -275,18 +273,18 @@ export default function TrailerSection() {
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-square overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                onClick={() => setSelectedImage(image.src)}
+                className="relative aspect-square overflow-hidden rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                <Image
+                <ClickableImage
                   src={image.src}
                   alt={image.alt}
                   fill
                   className="object-cover"
                   loading="lazy"
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  caption={image.alt}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                <div className="pointer-events-none absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                   <div className="opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white bg-opacity-90 rounded-full p-3">
                       <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -299,33 +297,6 @@ export default function TrailerSection() {
             ))}
           </div>
         </div>
-
-        {/* Modal for enlarged image */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div className="relative max-w-4xl max-h-full">
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <Image
-                src={selectedImage}
-                alt="Enlarged trailer view"
-                width={800}
-                height={600}
-                className="rounded-lg object-contain max-w-full max-h-full"
-                onClick={(e) => e.stopPropagation()}
-              />
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )

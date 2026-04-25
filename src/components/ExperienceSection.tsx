@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import ClickableImage from './ClickableImage'
 
 export default function ExperienceSection() {
   const experiences = [
@@ -49,11 +49,12 @@ export default function ExperienceSection() {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16">
           <div className="grid lg:grid-cols-2 gap-0">
             <div className="relative h-80 lg:h-full">
-              <Image
+              <ClickableImage
                 src="/images/Outdoor Kino.jpg"
                 alt="44 m² Open-Air-Kino - NO ROOTS FAMILY TRUCK"
                 fill
                 className="object-cover"
+                caption="Open-Air-Kino"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
               <div className="absolute bottom-6 left-6 text-white">
@@ -140,12 +141,13 @@ export default function ExperienceSection() {
 
           <div className="space-y-6">
             <div className="relative">
-              <Image
+              <ClickableImage
                 src="/images/Outdoor Kino epic.jpg"
                 alt="Professionelles Open-Air-Kino Setup"
                 width={600}
                 height={300}
                 className="rounded-2xl shadow-xl object-cover w-full h-72"
+                caption="Open-Air-Kino Setup"
               />
               <div className="absolute bottom-4 left-4 glass-effect rounded-lg px-4 py-2">
                 <span className="text-white font-semibold">Event-Setup</span>

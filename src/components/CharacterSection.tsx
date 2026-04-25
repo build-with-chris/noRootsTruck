@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import ClickableImage from './ClickableImage'
 
 export default function CharacterSection() {
   const chapterImages = [
@@ -28,12 +28,13 @@ export default function CharacterSection() {
             <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               {chapterImages.map((image) => (
                 <div key={image.src} className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                  <Image
+                  <ClickableImage
                     src={image.src}
                     alt={image.alt}
                     width={1200}
                     height={800}
                     className="object-cover w-full h-[260px] lg:h-[320px]"
+                    caption={image.alt}
                   />
                 </div>
               ))}
