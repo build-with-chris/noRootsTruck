@@ -16,7 +16,7 @@ export default function MobileNavigation({ isVisible }: MobileNavigationProps) {
     { id: 'truck', label: 'Zugmaschine', chapter: 'Kapitel 2' },
     { id: 'trailer', label: 'Wohntrailer', chapter: 'Kapitel 3' },
     { id: 'equipment', label: 'Ausstattung', chapter: 'Kapitel 4' },
-    { id: 'experience', label: 'Open-Air-Kino', chapter: 'Kapitel 5' },
+    { id: 'experience', label: 'Open-Air-Kino (optional)', chapter: 'Kapitel 5' },
     { id: 'technical', label: 'Technische Daten', chapter: 'Kapitel 6' },
     { id: 'contact', label: 'Preis & Kontakt', chapter: 'Kapitel 7' }
   ]

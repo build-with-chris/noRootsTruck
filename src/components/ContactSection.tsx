@@ -13,7 +13,7 @@ export default function ContactSection() {
             Preis & Kontakt
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Vereinbaren Sie eine Besichtigung und erleben Sie den NO ROOTS FAMILY TRUCK selbst
+            Bei Interesse schreiben Sie uns gerne eine E-Mail.
           </p>
         </div>
 
@@ -21,17 +21,17 @@ export default function ContactSection() {
         <div className="bg-gradient-to-r from-primary-800/50 to-accent-800/50 rounded-3xl p-8 lg:p-12 mb-16 text-center border border-primary-700/50">
           <div className="max-w-4xl mx-auto">
             <h3 className="font-serif text-3xl lg:text-4xl font-bold mb-8">
-              Investition in Freiheit
+              Preisübersicht
             </h3>
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary-300 mb-2">280.000 €</div>
-                <div className="text-lg text-gray-300">Festpreis</div>
+                <div className="text-4xl lg:text-5xl font-bold text-primary-300 mb-2">219.000 €</div>
+                <div className="text-lg text-gray-300">LKW mit Auflieger (VB)</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-accent-300 mb-2">44 m²</div>
-                <div className="text-lg text-gray-300">Wohnfläche</div>
+                <div className="text-4xl lg:text-5xl font-bold text-accent-300 mb-2">15.000 €</div>
+                <div className="text-lg text-gray-300">Aufpreis Kinoausstattung (VB)</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-primary-300 mb-2">1980/84</div>
@@ -44,27 +44,19 @@ export default function ContactSection() {
               <div className="grid sm:grid-cols-2 gap-3 text-left">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Komplette Möblierung</span>
+                  <span>Möblierung</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Open-Air-Kino System</span>
+                  <span>Kinoausstattung optional (Reiter Kino)</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Gesamte Technik</span>
+                  <span>Technik</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Vollständige Dokumentation</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Oldtimer-Wertgutachten</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-400 rounded-full"></div>
-                  <span>Einweisung & Support</span>
+                  <span>Besichtigung nach Absprache</span>
                 </div>
               </div>
             </div>
@@ -149,11 +141,11 @@ export default function ContactSection() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-400 rounded-full"></div>
-                  <span>Probefahrt für ernsthafte Interessenten</span>
+                  <span>Probefahrt nach Absprache</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-400 rounded-full"></div>
-                  <span>Komplette Funktionsvorführung</span>
+                  <span>Besichtigung vor Ort</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-accent-400 rounded-full"></div>

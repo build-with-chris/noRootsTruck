@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'NO ROOTS FAMILY TRUCK - Ein Zuhause auf Rädern',
-  description: 'Oldtimer Daimler-Benz 1017 S mit luxuriösem Wohntrailer. Baujahr 1980, 44 m² Wohnraum, Premium-Ausstattung. Preis: 280.000 €',
+  description: 'Oldtimer Daimler-Benz 1017 S mit luxuriösem Wohntrailer. Baujahr 1980, 44 m² Wohnraum, Premium-Ausstattung. Preis: 219.000 € VB, Kinoausstattung optional.',
   keywords: 'Oldtimer, Wohnmobil, Truck, Mobile Home, Daimler-Benz, Luxus, Premium',
 }
 

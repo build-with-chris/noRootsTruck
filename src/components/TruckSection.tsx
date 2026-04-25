@@ -26,15 +26,14 @@ export default function TruckSection() {
     'Oldtimerzulassung (H-Kennzeichen)',
     'Keine Maut, kein Sonntagsfahrverbot',
     'Keine Umweltzonenbeschränkung',
-    'Jährlich gewartet (TÜV im November)',
+    'TÜV und AU neu (Anfang November 2025)',
     'Neue Sattelkupplung',
     'Unterboden erneuert mit Rostschutz',
     'Neue Lenkung, neu lackiert',
     'Technisch einwandfrei',
     'Kabine: 2 Vordersitze + Rückbank',
     'Stockbett für 2 Personen',
-    'Originalgetreu restauriert',
-    'Versicherung: ca. 170 €/Jahr'
+    'Originalgetreu restauriert'
   ]
 
   return (
@@ -112,7 +111,7 @@ export default function TruckSection() {
 
         {/* Unser Meisterwerk - Full Width Hero Image */}
         <div className="mb-16">
-          <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Unser Meisterwerk</h3>
+          <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Impressionen</h3>
           {/* Desktop - with red background */}
           <div className="hidden lg:block relative bg-red-600 rounded-3xl overflow-hidden shadow-2xl">
             <Image
@@ -182,34 +181,18 @@ export default function TruckSection() {
             </div>
           </Accordion>
 
-          <Accordion title="Zustand & Wartung">
+          <Accordion title="Zustand">
             <div className="space-y-3">
               <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <div className="font-semibold text-green-800 mb-1">TÜV neu (November 2024)</div>
+                <div className="font-semibold text-green-800 mb-1">TÜV und AU neu (Anfang November 2025)</div>
                 <div className="text-green-700 text-sm">Technisch einwandfrei</div>
               </div>
               <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="font-semibold text-blue-800 mb-1">Restauriert & renoviert</div>
                 <div className="text-blue-700 text-sm">Neue Lenkung, neu lackiert, Unterboden erneuert</div>
               </div>
-              <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <div className="font-semibold text-gray-800 mb-1">Wertgutachten 2022</div>
-                <div className="text-gray-700 text-sm">Professionell bewertet: 20.000 €</div>
-              </div>
             </div>
           </Accordion>
-        </div>
-
-        {/* Badge für Wertgutachten */}
-        <div className="flex justify-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-green-50 border border-green-200 rounded-full px-4 py-2">
-            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-sm font-medium text-green-800">
-              2 Wertgutachten, die Zustand und Wert des Wagens bestätigen vorhanden
-            </span>
-          </div>
         </div>
       </div>
     </section>

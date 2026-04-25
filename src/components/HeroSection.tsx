@@ -88,7 +88,7 @@ export default function HeroSection() {
               </div>
               <div className="text-center">
                 <div className="font-semibold text-primary-200">Preis</div>
-                <div className="text-lg font-bold">280.000 €</div>
+                <div className="text-lg font-bold">219.000 € VB</div>
               </div>
             </div>
           </div>
@@ -140,9 +140,9 @@ export default function HeroSection() {
 
             <div className="glass-effect rounded-2xl p-6 mb-8 max-w-lg mx-auto backdrop-blur-md bg-white/10">
               <div className="text-center">
-                <div className="font-light text-primary-200 mb-2">Deine Investition in</div>
-                <div className="text-xl font-bold mb-4">maximale Freiheit</div>
-                <div className="text-2xl font-bold text-primary-300">280.000 €</div>
+                <div className="font-light text-primary-200 mb-2">Preis LKW mit Auflieger</div>
+                <div className="text-xl font-bold mb-4">Verhandlungsbasis</div>
+                <div className="text-2xl font-bold text-primary-300">219.000 €</div>
               </div>
             </div>
           </div>

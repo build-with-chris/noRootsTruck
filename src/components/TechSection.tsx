@@ -11,7 +11,7 @@ export default function TechSection() {
       ),
       items: [
         'Dieselaggregat 4 kW',
-        'LED-Beleuchtung komplett',
+        'LED-Beleuchtung',
         'Landstromanschluss',
         '12V & 230V System'
       ]
@@ -71,7 +71,7 @@ export default function TechSection() {
             Ausstattung & Technik
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Premium-Ausstattung für autarkes Wohnen und höchsten Komfort
+            Technische Ausstattung im Überblick
           </p>
         </div>
 
@@ -105,17 +105,14 @@ export default function TechSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Vollautonome Versorgung
+                Technikübersicht
               </h3>
               <div className="prose prose-lg text-gray-700 space-y-4">
                 <p>
-                  Das durchdachte Techniksystem ermöglicht völlige Unabhängigkeit von externer Infrastruktur.
-                  Ob für ein Wochenende in der Natur oder längere Aufenthalte abseits der Zivilisation –
-                  der NO ROOTS FAMILY TRUCK bietet allen Komfort eines modernen Zuhauses.
+                  Die technischen Komponenten sind hier zusammengefasst.
                 </p>
                 <p>
-                  Alle Systeme sind redundant ausgelegt und garantieren maximale Sicherheit und Zuverlässigkeit.
-                  Die intelligent vernetzte Technik lässt sich intuitiv bedienen und überwacht sich selbst.
+                  Details und aktueller Zustand werden bei Besichtigung gezeigt.
                 </p>
               </div>
 
@@ -146,7 +143,7 @@ export default function TechSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Autark & Nachhaltig</h4>
-                    <p className="text-sm text-gray-600">Unabhängige Versorgung für Wochen</p>
+                    <p className="text-sm text-gray-600">Autarkie je nach Nutzung</p>
                   </div>
                 </div>
               </div>
@@ -160,7 +157,7 @@ export default function TechSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Smart Control</h4>
-                    <p className="text-sm text-gray-600">Intelligente Steuerung aller Systeme</p>
+                    <p className="text-sm text-gray-600">Steuerung der Bordtechnik</p>
                   </div>
                 </div>
               </div>
@@ -174,7 +171,7 @@ export default function TechSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Maximale Sicherheit</h4>
-                    <p className="text-sm text-gray-600">Umfassende Sicherheitssysteme</p>
+                    <p className="text-sm text-gray-600">Sicherheitsausstattung vorhanden</p>
                   </div>
                 </div>
               </div>

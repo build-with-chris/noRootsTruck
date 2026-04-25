@@ -15,9 +15,9 @@ export default function ExperienceSection() {
       description: 'Mobile Veranstaltungslocation für private Feiern, Firmenevents oder Festivals'
     },
     {
-      title: 'Sofort einsatzbereit',
+      title: 'Aufbauzeit',
       size: 'Ca. 5 Stunden',
-      description: 'Der komplette Aufbau dauert ca. 5 Stunden'
+      description: 'Aufbau je nach Standort und Einsatz in etwa 5 Stunden'
     }
   ]
 
@@ -41,7 +41,7 @@ export default function ExperienceSection() {
             Erlebnis & Zusatzfunktionen
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Mehr als nur Wohnen – ein mobiles Entertainment-Center der Extraklasse
+            Mehr als nur Wohnen - das Kino-Paket ist optional zubuchbar
           </p>
         </div>
 
@@ -66,12 +66,11 @@ export default function ExperienceSection() {
             <div className="p-8 lg:p-12 flex flex-col justify-center">
               <div className="text-6xl mb-6">🎬</div>
               <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Open Air Kino der Extraklasse
+                Open Air Kino
               </h3>
               <div className="space-y-4 text-gray-700">
                 <p className="text-lg">
-                  Das Herzstück der Event-Ausstattung: Eine mega 44 Quadratmeter Leinwand verwandelt
-                  jeden Ort in ein eindrucksvolles Freiluftkino.
+                  Optionales Kino-Setup mit 44 m² Leinwand für Veranstaltungen.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3">
@@ -80,11 +79,11 @@ export default function ExperienceSection() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Einzigartiger Sound mit Floor-Speaker-System</span>
+                    <span>Soundsystem mit Floor-Speakern</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                    <span>Technik zu bedienen im Führerhaus: Video-Mischpult, Funkmikrofone und Audiomischpult für Kino und Live-Produktionen</span>
+                    <span>Steuerung aus dem Führerhaus (Video- und Audiotechnik)</span>
                   </div>
                 </div>
               </div>
@@ -131,11 +130,10 @@ export default function ExperienceSection() {
 
             <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-6">
               <h4 className="font-serif text-lg font-bold text-gray-900 mb-3">
-                &quot;Sofort einsatzbereit&quot;
+                Aufbauzeit
               </h4>
               <p className="text-gray-700">
-                Vom privaten Kinoabend bis zum Festival – autark, eindrucksvoll und
-                sofort einsatzbereit. Der komplette Aufbau dauert ca. 5 Stunden.
+                Der Aufbau dauert je nach Einsatzort in der Regel rund 5 Stunden.
               </p>
             </div>
           </div>
@@ -159,12 +157,10 @@ export default function ExperienceSection() {
         {/* Technical Specs */}
         <div className="mt-16 bg-white rounded-3xl p-8 lg:p-12 shadow-2xl text-center">
           <h3 className="font-serif text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-            Professionelles Kino-System
+            Kino-System (optional)
           </h3>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-            Seit 2017 als Sozial- und Eventprojekt &quot;Unterwegs Aufatmen&quot; im Einsatz.
-            Nur 3–5 Veranstaltungen pro Jahr, daher minimale Abnutzung.
-            Das System ist wie neu und bereit für unzählige weitere Events.
+            Angaben zur Kinoausstattung auf Anfrage.
           </p>
           <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
             <div className="p-4">
@@ -183,11 +179,10 @@ export default function ExperienceSection() {
 
           <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl">
             <h4 className="font-serif text-lg font-bold text-gray-900 mb-3">
-              Bisherige Nutzung: Nur 3–5 Events pro Jahr
+              Hinweis
             </h4>
             <p className="text-gray-700">
-              Kaum Abnutzung – das System ist wie neu und bereit für unzählige weitere Events.
-              Seit 2017 als Sozial- und Eventprojekt &quot;Unterwegs Aufatmen&quot; im Einsatz.
+              Das Kino ist optional und nicht im Basispreis enthalten.
             </p>
           </div>
         </div>

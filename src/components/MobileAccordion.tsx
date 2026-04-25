@@ -23,35 +23,17 @@ export default function MobileAccordion() {
       id: 'character',
       title: 'Geschichte & Charakter',
       chapter: 'Kapitel 1',
-      preview: 'Vom Renntransporter zum Design-Loft',
+      preview: 'Bildbereich',
       content: (
         <div className="space-y-4">
           <div className="relative rounded-xl overflow-hidden">
             <Image
               src="/images/History1.jpg"
-              alt="Geschichte des Trucks"
+              alt="Impressionen des Trucks"
               width={400}
               height={200}
               className="w-full h-48 object-cover"
             />
-          </div>
-          <p className="text-gray-700">
-            Dieser außergewöhnliche Daimler-Benz 1017 S war einst ein treuer Begleiter im Motorsport.
-            Heute erstrahlt er als luxuriöses mobiles Zuhause mit höchsten Ansprüchen an Design und Komfort.
-          </p>
-          <div className="grid grid-cols-3 gap-3 text-center">
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <div className="text-sm font-semibold text-gray-900">Handarbeit</div>
-              <div className="text-xs text-gray-600">Jedes Detail liebevoll gefertigt</div>
-            </div>
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <div className="text-sm font-semibold text-gray-900">Nachhaltig</div>
-              <div className="text-xs text-gray-600">Ressourcenschonend</div>
-            </div>
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <div className="text-sm font-semibold text-gray-900">Einzigartig</div>
-              <div className="text-xs text-gray-600">Unverwechselbares Unikat</div>
-            </div>
           </div>
         </div>
       )
@@ -89,10 +71,6 @@ export default function MobileAccordion() {
               <div className="text-xs text-gray-600">Zulassung</div>
               <div className="font-semibold">H-Kennzeichen</div>
             </div>
-          </div>
-          <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-            <div className="font-semibold text-green-800 mb-1">Wertgutachten 2022</div>
-            <div className="text-green-700 text-sm">20.000 € professionell bewertet</div>
           </div>
         </div>
       )
@@ -191,31 +169,26 @@ export default function MobileAccordion() {
       id: 'technical',
       title: 'Technische Daten',
       chapter: 'Kapitel 6',
-      preview: 'Wartung & Werterhaltung',
+      preview: 'Prüfung & Maße',
       content: (
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
             <div className="p-3 bg-gray-50 rounded-lg">
               <div className="text-xs text-gray-600">TÜV/AU</div>
-              <div className="font-semibold text-green-600">Neu (2024)</div>
+              <div className="font-semibold text-green-600">Neu (Anfang Nov 2025)</div>
             </div>
             <div className="p-3 bg-gray-50 rounded-lg">
-              <div className="text-xs text-gray-600">Versicherung</div>
-              <div className="font-semibold">Oldtimer (H)</div>
-            </div>
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <div className="text-xs text-gray-600">Kfz-Steuer</div>
-              <div className="font-semibold">191 €/Jahr</div>
+              <div className="text-xs text-gray-600">Gesamthöhe</div>
+              <div className="font-semibold">4,0 m</div>
             </div>
             <div className="p-3 bg-gray-50 rounded-lg">
               <div className="text-xs text-gray-600">Kraftstoff</div>
               <div className="font-semibold">18-22 l/100km</div>
             </div>
-          </div>
-          <div className="p-4 bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg">
-            <div className="font-semibold text-gray-900 mb-2">Gesamtinvestition</div>
-            <div className="text-2xl font-bold text-primary-700">€ 470.000</div>
-            <div className="text-sm text-gray-600 mt-1">Verkaufspreis: nur € 280.000</div>
+            <div className="p-3 bg-gray-50 rounded-lg">
+              <div className="text-xs text-gray-600">Führerschein</div>
+              <div className="font-semibold">Klasse C1</div>
+            </div>
           </div>
         </div>
       )
