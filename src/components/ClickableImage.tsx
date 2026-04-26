@@ -71,14 +71,16 @@ export default function ClickableImage({ caption, alt, ...imageProps }: Clickabl
                 </svg>
               </button>
 
-              <div className="max-h-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
-                <Image
-                  src={imageProps.src}
-                  alt={alt}
-                  width={2400}
-                  height={1600}
-                  className="h-auto max-h-[85vh] w-auto max-w-full rounded-xl object-contain"
-                />
+              <div className="max-h-full w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+                <div className="relative mx-auto h-[min(82vh,900px)] w-[min(92vw,1200px)]">
+                  <Image
+                    src={imageProps.src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 768px) 92vw, 1200px"
+                    className="rounded-xl object-contain"
+                  />
+                </div>
                 {caption && (
                   <p className="mt-3 text-center text-sm text-white/90">{caption}</p>
                 )}
