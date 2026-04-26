@@ -9,6 +9,7 @@ interface ClickableImageProps extends ImageProps {
 
 export default function ClickableImage({ caption, alt, ...imageProps }: ClickableImageProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const usesFill = imageProps.fill === true
 
   useEffect(() => {
     if (!isOpen) return
@@ -34,7 +35,7 @@ export default function ClickableImage({ caption, alt, ...imageProps }: Clickabl
     <>
       <button
         type="button"
-        className="group relative block w-full text-left"
+        className={`group relative block w-full text-left ${usesFill ? 'h-full' : ''}`}
         onClick={() => setIsOpen(true)}
         aria-label={`${alt} groß anzeigen`}
       >
